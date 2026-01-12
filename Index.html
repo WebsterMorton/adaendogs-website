@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaEndoGS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 顶部标题区 需要补充作者的主页链接地址-->
+    <header class="header">
+        <div class="container">
+            <h1 class="title">AdaEndoGS</h1>
+            <p class="subtitle">Adaptive Enlightening Model for Endoscopy Based on 3D Gaussian Splatting</p>
+            <p class="authors">
+ 		 <a href="" target="_blank">Fei Xia<sup>1</sup></a>,
+  		 <a href="" target="_blank">其他作者1<sup>1</sup></a>,
+ 		 <a href="" target="_blank">其他作者2<sup>2</sup></a>
+	    </p>
+            <p class="affiliation">Wuhan University</p>
+        </div>
+    </header>
+
+   <!-- 按钮区 需要补充代码链接-->
+    <section class="cta">
+        <div class="container">
+            <a href="" target="_blank" class="btn code-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                Code
+            </a>
+        </div>
+    </section>
+
+    <!-- 视频展示区 -->
+    <section class="video-section">
+        <div class="container">
+            <p class="video-desc">Comparison video of different methods on VEIDLA and C3VD datasets</p>
+            <div class="video-container">
+                <video controls poster="assets/results/basic_pipeline_comparison.png">
+                    <source src="assets/videos/dark region enlightening video on the C3VD and VEIDLA datasets.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- 摘要区 -->
+    <section class="section abstract-section">
+        <div class="container">
+            <h2 class="section-title">Abstract</h2>
+            <div class="section-img">
+                <img src="assets/abstract_img.png" alt="Abstract Illustration">
+            </div>
+            <div class="section-text">
+                <p>Endoscopic imaging technology is crucial for minimally invasive diagnosis and treatment. Due to physical constraints such as limited light source placement and narrow operational space, captured images often contain some dark regions that compromise clinical observation and diagnostic accuracy. To address this issue, we propose AdaEndoGS for endoscopic 3D reconstruction with physically consistent dark region illumination enhancement. Specifically, built upon 3D Gaussian Splatting, AdaEndoGS enriches each Gaussian point with surface attributes including normal, roughness, and reflectance, thereby constructing an illuminatable 3D scene representation. AdaEndoGS automatically identifies the dark region via ray tracing, leveraging Gaussian opacity, surface normal, and viewpoint information to adaptively plan the placement of a virtual light source. Experimental results show that AdaEndoGS more accurately simulates light-matter interactions compared to existing methods, significantly improving visual quality and enhancing detail visibility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 方法区 -->
+    <section class="section method-section">
+        <div class="container">
+            <h2 class="section-title">Method</h2>
+            <div class="section-img">
+                <img src="assets/pipeline.png" alt="AdaEndoGS Method Pipeline">
+            </div>
+            <div class="section-text">
+                <p>AdaEndoGS consists of two core stages: (1) 3D Gaussian Splatting extension: enrich each Gaussian point with surface attributes (normal, roughness, reflectance) to model light-matter interaction; (2) Adaptive dark region illumination: detect dark regions via BVH-based ray tracing, then optimize virtual light source placement to enhance dark regions while maintaining physical consistency. The pipeline above shows the complete process from endoscopic image input to illumination-enhanced 3D reconstruction output.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 结果和比较区 -->
+    <section class="section results-section">
+        <div class="container">
+            <h2 class="section-title">Results & Comparison</h2>
+            <div class="section-img results-grid">
+                <div class="result-card">
+                    <img src="assets/results/basic_pipeline_comparison.png" alt="Basic Pipeline Comparison">
+                    <p class="card-caption">AdaEndoGS Basic Pipeline (Input → 3D Reconstruction → Dark Region Enhancement)</p>
+                </div>
+                <div class="result-card">
+                    <img src="assets/results/veidla_multimethod_qualitative.png" alt="VEIDLA Multimethod Comparison">
+                    <p class="card-caption">Qualitative Comparison (VEIDLA Dataset, with Ground Truth)</p>
+                </div>
+                <div class="result-card">
+                    <img src="assets/results/c3vd_real_scene_comparison.png" alt="C3VD Real Scene Comparison">
+                    <p class="card-caption">Multi-Method Comparison (C3VD Real Endoscopic Scenes)</p>
+                </div>
+            </div>
+            <div class="section-text">
+                <p>We evaluate AdaEndoGS on both synthetic (VEIDLA) and real-world (C3VD) endoscopic datasets, comparing with state-of-the-art methods including RetinexNet, EnlightenGAN, Aleth-NeRF and vanilla 3DGS. The qualitative results show that AdaEndoGS outperforms all baselines in dark region enhancement while preserving anatomical details and color consistency. Quantitative metrics (PSNR/SSIM/LPIPS) further validate the superiority of our method in both synthetic and real endoscopic scenes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--消融实验区 -->
+    <section class="section ablation-section">
+        <div class="container">
+            <h2 class="section-title">Ablation Study</h2>
+            <div class="section-img">
+                <img src="assets/ablation.png" alt="Ablation Study Results">
+            </div>
+	   <div class="section-text">
+   		 <p>Ablation study on the VEIDLA dataset validates the effectiveness of key components in AdaEndoGS (PSNR↑, SSIM↑, LPIPS↓): The complete model achieves 22.936/0.908/0.165. Removing DiffuseMLP leads to 21.181/0.897/0.182; removing L<sub>tone-mse</sub> results in 22.113/0.889/0.174; removing L<sub>ssim</sub> causes the worst performance (18.371/0.792/0.211). All components are indispensable, with L<sub>ssim</sub> being the most critical for structural detail preservation.</p>
+	    </div>
+        </div>
+    </section>
+
+    <!-- 页脚 可能需要补充一点信息-->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 AdaEndoGS. All rights reserved.</p>
+            <p>Acknowledgements: This work is supported by (页脚这部分我不知道需不需要，需要的话要写什么).</p>
+        </div>
+    </footer>
+</body>
+</html>

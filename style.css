@@ -1,0 +1,264 @@
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全局字体 */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+/* 容器（控制页面宽度，居中） */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ========== 统一板块样式（核心） ========== */
+/* 所有内容板块（摘要/方法/结果/消融）通用样式 */
+.section {
+    padding: 3rem 0; /* 统一上下内边距 */
+}
+/* 统一板块标题：左对齐 + 固定样式 */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222;
+    text-align: left; /* 标题仍左对齐，仅图片居中 */
+    margin-bottom: 1.5rem; /* 标题到图片的间距 */
+    border-bottom: 2px solid #f0f0f0; /* 可选：标题下加分割线 */
+    padding-bottom: 0.5rem;
+}
+/* 统一板块图片容器 - 核心修改：改为居中对齐 */
+.section-img {
+    width: 100%;
+    margin-bottom: 1.5rem; /* 图片到文字的间距 */
+    display: flex;
+    justify-content: center; /* 关键：图片容器居中（原flex-start） */
+}
+/* ========== 分板块设置图片尺寸 ========== */
+/* 摘要图片：限制最大宽度800px，居中+按比例缩放 */
+.abstract-section .section-img img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+/* 方法图片：和摘要图统一尺寸，居中 */
+.method-section .section-img img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+/* 消融实验图片：适度放大最大宽度，居中 */
+.ablation-section .section-img img {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+/* 统一板块文字描述 */
+.section-text {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* ========== 顶部标题区 ========== */
+.header {
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+.authors {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+/* 作者超链接+上标样式 */
+.authors a {
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.authors a:hover {
+    color: #007bff;
+}
+.authors sup {
+    font-size: 0.75rem;
+    vertical-align: super;
+    margin-left: 2px;
+}
+.affiliation {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ========== 视频板块（单独样式，已居中） ========== */
+.video-section {
+    padding: 3rem 0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+.video-desc {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+.video-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* ========== 结果板块：图片网格 - 核心修改：整体居中 ========== */
+.results-grid {
+    display: flex;
+    justify-content: center; /* 关键：结果卡片网格居中（原flex-start） */
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.result-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.result-card img {
+    width: 100%;
+    height: 220px; /* 卡片内图片固定高度，居中显示 */
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background-color: #f5f5f5;
+}
+.card-caption {
+    font-size: 0.95rem;
+    color: #555;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* ========== 按钮区 ========== */
+.cta {
+    padding: 2rem 0 6rem;
+    text-align: center;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.code-btn {
+    border: 2px solid #007bff;
+    color: #007bff;
+    background-color: #fff;
+}
+.code-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+.icon {
+    vertical-align: middle;
+}
+
+/* ========== 页脚 ========== */
+.footer {
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+.footer p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+}
+
+/* ========== 响应式适配 ========== */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .section {
+        padding: 2rem 0;
+    }
+    /* 移动端图片占满宽度，仍居中 */
+    .abstract-section .section-img img,
+    .method-section .section-img img,
+    .ablation-section .section-img img {
+        max-width: 100%;
+    }
+    .result-card {
+        min-width: 250px;
+        max-width: 100%;
+    }
+    .result-card img {
+        height: 180px;
+    }
+    .video-container {
+        max-width: 100%;
+    }
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.3rem;
+    }
+    .result-card img {
+        height: 150px;
+    }
+    .section-text {
+        font-size: 0.95rem;
+    }
+}

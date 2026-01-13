@@ -108,21 +108,24 @@
             <div class="section-img">
                 <img src="assets/ablation.png" alt="Ablation Study Results">
             </div>
-	   <div class="section-text">
-   		 <p>Ablation study on the VEIDLA dataset validates the effectiveness of key components in AdaEndoGS (PSNR↑, SSIM↑, LPIPS↓): The complete model achieves 22.936/0.908/0.165. Removing DiffuseMLP leads to 21.181/0.897/0.182; removing L<sub>tone-mse</sub> results in 22.113/0.889/0.174; removing L<sub>ssim</sub> causes the worst performance (18.371/0.792/0.211). All components are indispensable, with L<sub>ssim</sub> being the most critical for structural detail preservation.</p>
-	    </div>
+			<div class="section-text">
+ 			 	<p>We conduct ablation studies on the VEIDLA dataset to verify the contribution of each key component in AdaEndoGS, with evaluation metrics including PSNR (higher is better), SSIM (higher is better) and LPIPS (lower is better). The complete AdaEndoGS model achieves the optimal performance: PSNR of 22.936, SSIM of 0.908, and LPIPS of 0.165.</p>
+ 				<p>1) Removing <strong>DiffuseMLP</strong> (physical diffuse reflection modeling component) leads to a significant performance drop: PSNR decreases by 1.755 to 21.181, SSIM drops to 0.897, and LPIPS rises to 0.182, confirming its critical role in modeling accurate light-matter interactions for endoscopic scenes.</p>
+  				<p>2) Abolishing <strong>L<sub>tone-mse</sub></strong> (tone mapping reconstruction loss) results in PSNR of 22.113, SSIM of 0.889 and LPIPS of 0.174. This indicates that the tone-mse loss is essential for maintaining global tonal consistency of enhanced endoscopic images.</p>
+ 				<p>3) Removing <strong>L<sub>ssim</sub></strong> (structural similarity loss) causes the most severe performance degradation: PSNR plummets to 18.371 (a 4.565 drop), SSIM reduces to 0.792, and LPIPS increases to 0.211. This fully demonstrates that the SSIM loss is the core component for preserving anatomical structural details in endoscopic dark region enhancement.</p>
+			</div>
         </div>
     </section>
 
-    <!-- 页脚 可能需要补充一点信息-->
+    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <p>© 2025 AdaEndoGS. All rights reserved.</p>
-            <p>Acknowledgements: This work is supported by (页脚这部分我不知道需不需要，需要的话要写什么).</p>
+            <p>Acknowledgements: This work is supported by National Natural Science Foundation of China(No.62172309) and Key Research and Development Program of Hubei Province(No.2025BAB020).</p>
         </div>
     </footer>
 </body>
 </html>
+
 
 
 
